@@ -40,8 +40,10 @@ export default class ApiData extends Component {
         //  const authArtist=this.state.authData;  
           const apiSession = this.state.authData
 
-        sessionStorage.setItem("accessToken", JSON.stringify(apiSession));     
-        
+          localStorage.setItem("accessToken", JSON.stringify(apiSession));     
+         
+
+
         // const getData = () => {   }
         
         // setTimeout(getData, 8000);
