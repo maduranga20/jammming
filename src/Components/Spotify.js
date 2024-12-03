@@ -6,45 +6,62 @@ export default class SongData extends Component {
   constructor() {
     super();
     this.state = {
-        spotifyData: [],
+      spotifyData: [],
+      check_response: [],
+      song_list: [],
+      check_name: ""
     };
-    this.number = {};
-    this.Search=this.Search.bind(this);
-}
+    this.Search = this.Search.bind(this);
+  }
 
-  async Search(name) {
+
+  async Search(singerName) {
     const toObject = localStorage.getItem("accessToken");
-   
-    console.log(name);
-    
-    // Michael
-    const singerName = name;
     const artistData = await fetch(`https://api.spotify.com/v1/search?type=artist&q=${singerName}`, JSON.parse(toObject));
-
     const musicData = await artistData.json();
-    const dataArtist = musicData.artists;
-    this.setState({ spotifyData: dataArtist })
+    this.setState({ check_response: artistData })
+    this.setState({ spotifyData: musicData.artists })
+    this.setState({ check_name: singerName })
+
+  }
 
 
-    this.number = dataArtist;
-}
-componentDidMount() {
- 
-    // this.Search();
-    
-}
+  artistInformation() {
+    const selected_artist = this.configureResponse();
+    if (Array.isArray(selected_artist) === false) {
+      return selected_artist;
+    }
+    else if (Array.isArray(selected_artist)) {
+      const findby_name = selected_artist.find((item) => {
+        return item.name == this.state.check_name;
+      });
+      return findby_name;
+    }
+    else {
+    }
+  }
 
-// artistInfo(name){
-//   console.log(name);
-// }
+  configureResponse() {
+    const { items } = this.state.spotifyData;
+    if (this.state.check_response.ok) {
+      return items
+    }
+    else {
+      return "Not success"
+    }
+  }
+
+
   render() {
-    console.log(this.state.spotifyData);
-    
+    // console.log(this.configureResponse());
+    console.log(this.artistInformation());
+
+
     return (
       <div>SongData
-          <SearchArtist info={ this.Search}/>
+        <SearchArtist search={this.Search} />
       </div>
-      
+
     )
   }
 }
