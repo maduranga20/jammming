@@ -9,30 +9,36 @@ export default class SearchArtist extends Component {
             check_event:[]
         };
 
-        this.searchData = {};
-
-        this.SearchingArtist = this.SearchingArtist.bind(this);
-        this.SubmitInput = this.SubmitInput.bind(this);
+        this.searchingArtist = this.searchingArtist.bind(this);
+        this.submitInput = this.submitInput.bind(this);
+        this.keyEnter = this.keyEnter.bind(this);
 
     }
 
-    SearchingArtist(event) {
+    searchingArtist(event) {
         this.setState({ artist_name: event.target.value });
         this.setState({ check_event: event.bubbles });
     }
-    SubmitInput() {
+    submitInput() {
         this.props.search(this.state.artist_name);
 
     }
-
+    keyEnter(e) {
+        if (e.keyCode === 13) {
+            this.submitInput();}
+        // console.log(e.keyCode);
+        
+      }
     render() {
 
         // console.log(this.state.check_event);
         
         return (
             <div><h3>Search</h3>
-                <input type='text' onChange={this.SearchingArtist} />
-                <button onClick={this.SubmitInput}>Search</button>
+                <input type='text' onChange={this.searchingArtist}
+                  onKeyDown={this.keyEnter} 
+                  placeholder="Enter A Song, Album, or Artist"/>
+                <button onClick={this.submitInput}>Search</button>
             </div>
         )
     }
