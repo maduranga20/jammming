@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import SearchArtist from './Search';
+import PlayList from './PlayList';
 
 export default class SongData extends Component {
 
@@ -61,7 +62,7 @@ export default class SongData extends Component {
 
 
   render() {
-    console.log(this.configureSearch());
+    // console.log(this.configureSearch());
     // console.log(this.artistInformation());
     // console.log(this.state.searchResults);
 
@@ -69,6 +70,7 @@ export default class SongData extends Component {
     return (
       <div>SongData
         <SearchArtist search={this.Search} />
+        <PlayList playList={this.configureSearch()} />
       </div>
 
     )
