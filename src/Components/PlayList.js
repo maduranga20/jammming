@@ -11,36 +11,51 @@ export default class PlayList extends React.Component {
     }
     //    const isRemoval=true
 
+    renderPlayList() {
+        return (
+            <button onClick={this.props.isRemoval ?this.removeTrack : this.addTrack}> 
+            { this.props.isRemoval ?  (<p>Remove</p>): (<p>Add</p>)}
+            
+            </button>
+
+        )
+    }
+
     addTrack() {
+        // let list=this.props.track;
         if (
             this.state.playListTracks.find((savedTrack) => savedTrack.id === this.props.track.id)
         ) {
             return;
         }
-        let newPlaylistTrack = [ ...this.state.playlistTracks ];
+
+        let newPlaylistTrack = [ ...this.state.playListTracks ];
         newPlaylistTrack.push(this.props.track);
         this.setState({ playlistTracks: newPlaylistTrack });
 
 
     }
+
     removeTrack() {
-        // return this.props.playList
+        const newPlaylistTrack = this.state.playListTracks.filter(
+            (savedTrack) => savedTrack.id !== this.props.track.id
+          );
+          this.setState({ playlistTracks: newPlaylistTrack });
+      
     }
 
-    renderPlayList() {
-        // const isRemoval=true
-        return (
-            <div></div>
-        );
-    }
+
 
 
     render() {
-        // console.log(this.props.track);
-        console.log( this.state.playListTracks);
+        console.log(this.state.playListTracks);
+        // console.log( this.addTrack());
 
         return (
-            <div>PlayList</div>
+            <div><p>PlayList</p>
+
+                {this.renderPlayList()}
+            </div>
         )
     }
 }
