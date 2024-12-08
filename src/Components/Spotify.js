@@ -14,6 +14,7 @@ export default class SongData extends Component {
       check_name: ""
     };
     this.Search = this.Search.bind(this);
+    this.configureSearch = this.configureSearch.bind(this);
   }
 
 
@@ -49,28 +50,39 @@ export default class SongData extends Component {
       return [];
     }
 
-    return this.state.search_tracks.tracks.items.map((track) => ({
-      id: track.id,
-      name: track.name,
-      artist: track.artists[0].name,
-      album: track.album.name,
-      uri: track.uri,
-    }));
+    // return this.state.search_tracks.tracks.items.map((track) => ({
+    //     id: track.id,
+    //     name: track.name,
+    //     artist: track.artists[0].name,
+    //     album: track.album.name,
+    //     uri: track.uri,
+    //     track:track
+    //   }));
 
-
+   
+      return this.state.search_tracks.tracks.items;
   }
 
 
   render() {
     // console.log(this.configureSearch());
     // console.log(this.artistInformation());
-    // console.log(this.state.searchResults);
+    // console.log(this.state.search_tracks.tracks);
 
 
     return (
       <div>SongData
         <SearchArtist search={this.Search} />
-        <PlayList playList={this.configureSearch()} />
+        {/* <PlayList playList={this.configureSearch()} /> */}
+        {this.configureSearch().map((track) => (
+          <PlayList
+            key={track.id}
+            track={track}
+
+          />
+        ))
+        } 
+        
       </div>
 
     )
