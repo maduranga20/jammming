@@ -67,7 +67,7 @@ export default class SongData extends Component {
             key={track.id}
             track={this.state.search_tracks}
             searchResults={this.state.search_tracks.tracks}
-            isRemoval={true}
+            isRemoval={false}
           />
         ))
         }

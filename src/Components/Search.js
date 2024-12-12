@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import "./Style/searchBar.css";
 
 export default class SearchArtist extends Component {
 
@@ -34,11 +35,11 @@ export default class SearchArtist extends Component {
         // console.log(this.state.check_event);
         
         return (
-            <div><h3>Search</h3>
+            <div className="SearchBar">
                 <input type='text' onChange={this.searchingArtist}
                   onKeyDown={this.keyEnter} 
                   placeholder="Enter A Song, Album, or Artist"/>
-                <button onClick={this.submitInput}>Search</button>
+                <button onClick={this.submitInput} className="SearchButton">Search</button>
             </div>
         )
     }
