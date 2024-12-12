@@ -21,7 +21,7 @@ export default class SongData extends Component {
   async Search(singerName) {
     const accessToken = localStorage.getItem("accessToken");
     const track_Response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${singerName}`, JSON.parse(accessToken));
-    const trrack_objects = await track_Response.json();   
+    const trrack_objects = await track_Response.json();
     this.setState({ search_tracks: trrack_objects })
 
   }
@@ -47,13 +47,15 @@ export default class SongData extends Component {
       return [];
     }
 
-      return this.state.search_tracks.tracks.items;
+    return this.state.search_tracks.tracks.items;
   }
 
 
+  
+
+
   render() {
-    // console.log(this.configureSearch());
-    // console.log(this.artistInformation());
+    // console.log(this.testTracks());
     // console.log(this.state.search_tracks.tracks);
 
 
@@ -63,14 +65,13 @@ export default class SongData extends Component {
         {this.configureSearch().map((track) => (
           <PlayList
             key={track.id}
-            track={track}
+            track={this.state.search_tracks}
+            searchResults={this.state.search_tracks.tracks}
             isRemoval={true}
-
-
           />
         ))
-        } 
-        
+        }
+
       </div>
 
     )
