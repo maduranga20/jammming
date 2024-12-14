@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import "./Style/PlayList.css"
 
 export default class PlayList extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export default class PlayList extends React.Component {
 
   renderTracks() {
     return (
-      <div>
+      <div >
         <button onClick={this.props.isRemoval ? this.removeTrack : this.addTrack}> {this.props.isRemoval ?
           (<p> Remove</p>
 
@@ -65,7 +66,7 @@ export default class PlayList extends React.Component {
   removeTrack() {
     const { id: trackid } = this.selectTrack().find(track => track.id);
     const newPlaylistTrack = this.state.playListTracks.filter(
-      (savedTrack) => savedTrack.id!==trackid
+      (savedTrack) => savedTrack.id !== trackid
     );
     this.setState({ playlistTracks: newPlaylistTrack });
 
@@ -81,13 +82,16 @@ export default class PlayList extends React.Component {
     // console.log(this.removeTrack());
     // console.log(this.props.isRemoval);
     // console.log(this.renderTracks());
-       console.log(this.state.playListTracks);
-       
+    console.log(this.state.playListTracks);
+
 
     return (
-      <div><p>PlayList</p>
-        {this.renderTracks()}
+      <div className="Track">
+        <div className="Track-information">
+          <p>PlayList</p>
 
+        </div>
+        {this.renderTracks()}
       </div>
     )
   }
