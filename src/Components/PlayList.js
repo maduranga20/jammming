@@ -1,11 +1,15 @@
 import React from 'react';
-import "./Style/PlayList.css"
+// import "./Style/playList.css";
+
+
 
 export default class PlayList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       playListTracks: [],
+      playlistName: "Playlist Name",
+
     }
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
@@ -14,15 +18,17 @@ export default class PlayList extends React.Component {
 
   renderTracks() {
     return (
-      <div >
-        <button onClick={this.props.isRemoval ? this.removeTrack : this.addTrack}> {this.props.isRemoval ?
-          (<p> Remove</p>
+      <button
+        onClick={this.props.isRemoval ? this.removeTrack : this.addTrack}
+        className="Track-action"
+      >
+        {this.props.isRemoval ? (
+         <p> plus</p>
+        ) : (
+          <p>minus</p>
+        )}
+      </button>
 
-          ) : (
-            <p>Add</p>
-          )}</button>
-
-      </div>
 
     );
   }
@@ -70,10 +76,12 @@ export default class PlayList extends React.Component {
     );
     this.setState({ playlistTracks: newPlaylistTrack });
 
-
-
   }
 
+
+  updatePlaylistName(newName) {
+    this.setState({ playlistName: newName });
+  }
 
 
   render() {
@@ -86,8 +94,8 @@ export default class PlayList extends React.Component {
 
 
     return (
-      <div className="Track">
-        <div className="Track-information">
+      <div >
+        <div>
           <p>PlayList</p>
 
         </div>

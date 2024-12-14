@@ -35,11 +35,11 @@ export default class SearchArtist extends Component {
         // console.log(this.state.check_event);
         
         return (
-            <div className="SearchBar">
+            <div>
                 <input type='text' onChange={this.searchingArtist}
                   onKeyDown={this.keyEnter} 
                   placeholder="Enter A Song, Album, or Artist"/>
-                <button onClick={this.submitInput} className="SearchButton">Search</button>
+                <button onClick={this.submitInput}>Search</button>
             </div>
         )
     }
