@@ -1,5 +1,6 @@
 import React from 'react';
-// import "./Style/playList.css";
+import "./Style/playList.css";
+
 
 
 
@@ -20,7 +21,7 @@ export default class PlayList extends React.Component {
     return (
       <button
         onClick={this.props.isRemoval ? this.removeTrack : this.addTrack}
-        className="Track-action"
+       
       >
         {this.props.isRemoval ? (
          <p> plus</p>
@@ -90,12 +91,12 @@ export default class PlayList extends React.Component {
     // console.log(this.removeTrack());
     // console.log(this.props.isRemoval);
     // console.log(this.renderTracks());
-    console.log(this.state.playListTracks);
+    console.log(this.state.playListTracks[0]);
 
 
     return (
-      <div >
-        <div>
+      <div  >
+        <div >
           <p>PlayList</p>
 
         </div>

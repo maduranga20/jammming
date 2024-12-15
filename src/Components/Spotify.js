@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SearchArtist from './Search';
 import PlayList from './PlayList';
+import "./Style/spotify.css";
 
 export default class SongData extends Component {
 
@@ -51,7 +52,7 @@ export default class SongData extends Component {
   }
 
 
-  
+
 
 
   render() {
@@ -61,16 +62,24 @@ export default class SongData extends Component {
 
     return (
       <div>SongData
-        <SearchArtist search={this.Search} />
-        {this.configureSearch().map((track) => (
-          <PlayList
-            key={track.id}
-            track={this.state.search_tracks}
-            searchResults={this.state.search_tracks.tracks}
-            isRemoval={false}
-          />
-        ))
-        }
+        <h1>
+          Ja<span className="highlight">mmm</span>ing
+        </h1>
+        <div className="App">
+          <div className="App-playlist">
+            <SearchArtist search={this.Search} />
+            {this.configureSearch().map((track) => (
+              <PlayList
+                key={track.id}
+                track={this.state.search_tracks}
+                searchResults={this.state.search_tracks.tracks}
+                isRemoval={false}
+              />
+            ))
+            }
+          </div>
+        </div>
+
 
       </div>
 
