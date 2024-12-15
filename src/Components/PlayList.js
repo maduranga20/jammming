@@ -21,10 +21,10 @@ export default class PlayList extends React.Component {
     return (
       <button
         onClick={this.props.isRemoval ? this.removeTrack : this.addTrack}
-       
+
       >
         {this.props.isRemoval ? (
-         <p> plus</p>
+          <p> plus</p>
         ) : (
           <p>minus</p>
         )}
@@ -91,7 +91,20 @@ export default class PlayList extends React.Component {
     // console.log(this.removeTrack());
     // console.log(this.props.isRemoval);
     // console.log(this.renderTracks());
-    console.log(this.state.playListTracks[0]);
+    const list = this.state.playListTracks.map(
+      (track) => (
+        {
+          id: track.id,
+          name: track.name,
+
+
+
+        }
+
+
+      )
+    );
+    console.log(list);
 
 
     return (
