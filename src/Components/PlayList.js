@@ -10,6 +10,7 @@ export default class PlayList extends React.Component {
     this.state = {
       playListTracks: [],
       playlistName: "Playlist Name",
+      isRemoval:this.props.isRemoval
 
     }
     this.addTrack = this.addTrack.bind(this);
@@ -29,19 +30,11 @@ export default class PlayList extends React.Component {
           <p>minus</p>
         )}
       </button>
-
-
     );
   }
 
 
-  selectTrack() {
-    if (!this.props.searchResults) {
-      return []
-    }
-
-
-
+  trackList(){
     return this.props.searchResults.items.map((track) => ({
       id: track.id,
       name: track.name,
@@ -49,23 +42,24 @@ export default class PlayList extends React.Component {
       album: track.album.name,
       uri: track.uri,
     }));
+  }
+
+  selectTrack() {
+    if (!this.props.searchResults) {
+      return []
+    }
+
+    return this.trackList();
 
   }
 
   addTrack() {
 
-    // const {expensiveProducts} = this.selectTrack().find(product => product.price >40);
-    // const expensiveProducts = this.selectTrack().filter(product => product.price >40);
-
-
-    // const { track: artist } = this.selectTrack().filter(track => track);
     const { id: trackid } = this.selectTrack().find(track => track.id);
 
     if (this.state.playListTracks.find((savedTrack) => savedTrack.id === trackid)) {
       return;
     }
-    // let newPlaylistTrack = [ ...this.state.playListTracks ];
-    // newPlaylistTrack.push(this.selectTrack());  
     this.setState({ playListTracks: this.selectTrack() })
 
   }
@@ -87,30 +81,22 @@ export default class PlayList extends React.Component {
 
   render() {
 
-    // console.log(this.selectTrack().items);
-    // console.log(this.removeTrack());
-    // console.log(this.props.isRemoval);
-    // console.log(this.renderTracks());
-    const list = this.state.playListTracks.map(
-      (track) => (
-        {
-          id: track.id,
-          name: track.name,
-
-
-
-        }
-
-
-      )
-    );
-    console.log(list);
-
+    // const list = this.state.playListTracks.map(
+    //   (track) => (
+    //     {
+    //       id: track.id,
+    //       name: track.name,
+    //    }
+    //   )
+    // );
+    // console.log(list);
+console.log(this.state.isRemoval);
+// 
 
     return (
       <div  >
         <div >
-          <p>PlayList</p>
+          <h3>list</h3>
 
         </div>
         {this.renderTracks()}
