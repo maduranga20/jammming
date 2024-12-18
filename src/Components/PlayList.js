@@ -25,9 +25,9 @@ export default class PlayList extends React.Component {
 
       >
         {this.props.isRemoval ? (
-          <p> plus</p>
+          <p>minus </p>
         ) : (
-          <p>minus</p>
+          <p> plus</p>
         )}
       </button>
     );
