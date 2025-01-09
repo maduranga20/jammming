@@ -1,63 +1,63 @@
 import React, { Component } from 'react'
 import SearchArtist from './Search';
 import PlayList from './PlayList';
-import "./Style/spotify.css";
+import TrackList from './ProcessList';
+// import "./Style/spotify.css";
 
 export default class SongData extends Component {
 
   constructor() {
     super();
     this.state = {
-      search_tracks: [],
-      check_response: [],
-      song_list: [],
-      searchResults: [],
-      check_name: ""
+      playlistTracks: [],
+      jsonResponse: [],
+      playlistName: "Playlist Name",
+
     };
     this.Search = this.Search.bind(this);
-    this.configureSearch = this.configureSearch.bind(this);
+    this.addTrack = this.addTrack.bind(this);
+    this.searchResults = this.searchResults.bind(this);
   }
 
 
   async Search(singerName) {
     const accessToken = localStorage.getItem("accessToken");
     const track_Response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${singerName}`, JSON.parse(accessToken));
-    const trrack_objects = await track_Response.json();
-    this.setState({ search_tracks: trrack_objects })
+    const track_objects = await track_Response.json();
+    this.setState({ jsonResponse: track_objects })
 
   }
 
 
-  // artistInformation() {
-  //   const selected_artist = this.configureResponse();
-  //   if (Array.isArray(selected_artist) === false) {
-  //     return selected_artist;
-  //   }
-  //   else if (Array.isArray(selected_artist)) {
-  //     const findby_name = selected_artist.find((item) => {
-  //       return item.name == this.state.check_name;
-  //     });
-  //     return findby_name;
-  //   }
-  //   else {
-  //   }
-  // }
+  searchResults() {
+    // this.state.jsonResponse
+    return this.state.jsonResponse.tracks?.items.map((track) => ({
+      id: track.id,
+      name: track.name,
+      artist: track.artists[ 0 ].name,
+      album: track.album.name,
+      uri: track.uri,
+    }));
+  }
 
-  configureSearch() {
-    if (!this.state.search_tracks.tracks) {
-      return [];
+
+  addTrack(track) {
+    if (
+      this.state.playlistTracks.find((savedTrack) => savedTrack.id === track.id)
+    ) {
+      return;
     }
+    //Track not found in PLaylist
 
-    return this.state.search_tracks.tracks.items;
+    //Array copy
+    let newPlaylistTrack = [ ...this.state.playlistTracks ];
+    newPlaylistTrack.push(track);
+    this.setState({ playlistTracks: newPlaylistTrack });
   }
-
-
-
 
 
   render() {
-    // console.log(this.testTracks());
-    // console.log(this.state.search_tracks.tracks);
+    //  console.log(this.searchResults());
 
 
     return (
@@ -68,19 +68,20 @@ export default class SongData extends Component {
         <div className="App">
           <div className="App-playlist">
             <SearchArtist search={this.Search} />
-            {this.configureSearch().map((track) => (
-              <PlayList
-                key={track.id}
-                track={this.state.search_tracks}
-                searchResults={this.state.search_tracks.tracks}
-                isRemoval={false}
-              />
-            ))
-            }
+            <PlayList playlistTracks={this.state.playlistTracks}
+              playlistName={this.state.playlistName}
+            />
+            <TrackList track={this.searchResults()}
+              onAdd={this.addTrack}
+              isRemoval={false}
+
+            />
+
+
           </div>
         </div>
 
-           
+
       </div>
 
     )

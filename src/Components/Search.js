@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./Style/searchBar.css";
+// import "./Style/searchBar.css";
 
 export default class SearchArtist extends Component {
 
