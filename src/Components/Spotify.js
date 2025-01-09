@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import SearchArtist from './Search';
-import PlayList from './PlayList';
 import TrackList from './ProcessList';
 // import "./Style/spotify.css";
 
@@ -9,13 +8,9 @@ export default class SongData extends Component {
   constructor() {
     super();
     this.state = {
-      playlistTracks: [],
       jsonResponse: [],
-      playlistName: "Playlist Name",
-
     };
     this.Search = this.Search.bind(this);
-    this.addTrack = this.addTrack.bind(this);
     this.searchResults = this.searchResults.bind(this);
   }
 
@@ -41,19 +36,6 @@ export default class SongData extends Component {
   }
 
 
-  addTrack(track) {
-    if (
-      this.state.playlistTracks.find((savedTrack) => savedTrack.id === track.id)
-    ) {
-      return;
-    }
-    //Track not found in PLaylist
-
-    //Array copy
-    let newPlaylistTrack = [ ...this.state.playlistTracks ];
-    newPlaylistTrack.push(track);
-    this.setState({ playlistTracks: newPlaylistTrack });
-  }
 
 
   render() {
@@ -68,11 +50,7 @@ export default class SongData extends Component {
         <div className="App">
           <div className="App-playlist">
             <SearchArtist search={this.Search} />
-            <PlayList playlistTracks={this.state.playlistTracks}
-              playlistName={this.state.playlistName}
-            />
-            <TrackList track={this.searchResults()}
-              onAdd={this.addTrack}
+            <TrackList tracks={this.searchResults()}
               isRemoval={false}
 
             />

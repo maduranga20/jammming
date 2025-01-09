@@ -18,7 +18,7 @@ export default class SearchArtist extends Component {
 
     searchingArtist(event) {
         this.setState({ artist_name: event.target.value });
-        this.setState({ check_event: event.bubbles });
+        // this.setState({ check_event: event.bubbles });
     }
     submitInput() {
         this.props.search(this.state.artist_name);
