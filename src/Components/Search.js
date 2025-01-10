@@ -22,6 +22,8 @@ export default class SearchArtist extends Component {
     }
     submitInput() {
         this.props.search(this.state.artist_name);
+        // console.log(typeof(this.props.search));
+        
 
     }
     keyEnter(e) {

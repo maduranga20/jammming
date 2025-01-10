@@ -14,17 +14,9 @@ export default class Track extends Component {
             className="Track-action"
           >
             {this.props.isRemoval ? (
-              <box-icon
-                color="white"
-                name="minus-circle"
-                animation="flashing-hover"
-              ></box-icon>
+             <h4>-</h4>
             ) : (
-              <box-icon
-                color="white"
-                name="plus-circle"
-                animation="flashing-hover"
-              ></box-icon>
+              <h4>+</h4>
             )}
           </button>
         );
@@ -32,13 +24,25 @@ export default class Track extends Component {
     
     
       addTrack() {
-        this.props.onAdd(this.props.track);
+        // this.props.onAdd(this.props.track);
+        // console.log(typeof(this.props.onAdd));
+        // console.log(this.props.track);
+        // console.log(this.props.onAdd);
+      //  console.log(Object.entries(this.props.onAdd));
+     
+        
       }
       removeTrack() {
         this.props.onRemove(this.props.track);
       }
     
   render() {
+    // this.props.testline(" from trackList")
+  //  let inside=Object.entries(this.props.onAdd);
+    // console.log( typeof(this.props.onAdd));
+    // console.log( Object.keys(this.props.onAdd));
+   
+    
     return (
       <div>
         
