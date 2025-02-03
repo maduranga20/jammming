@@ -52,10 +52,8 @@ export default class SongData extends Component {
             <SearchArtist search={this.Search} />
             <TrackList tracks={this.searchResults()}
               isRemoval={false}
-             
-
+     
             />
-
 
           </div>
         </div>

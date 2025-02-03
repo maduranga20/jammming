@@ -25,7 +25,7 @@ export default class Track extends Component {
     
       addTrack() {
         // this.props.onAdd(this.props.track);
-        // console.log(typeof(this.props.onAdd));
+        console.log(typeof(this.props.onAdd));
         // console.log(this.props.track);
         // console.log(this.props.onAdd);
       //  console.log(Object.entries(this.props.onAdd));

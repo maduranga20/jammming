@@ -24,24 +24,21 @@ export default class PlayList extends React.Component {
     this.props.onNameChange(name);
   }
 
-  seetext(text){
-    console.log(text);
-     
-    }
+
   addTrack(track) {
 
     // console.log(track);
-    
-    // if (
-    //   this.state.playlistTracks.find((savedTrack) => savedTrack.id === track.id)
-    // ) {
-    //   return;
-    // }
-   
-    // let newPlaylistTrack = [ ...this.state.playlistTracks ];
-    // newPlaylistTrack.push(track);
-    // this.setState({ playlistTracks: newPlaylistTrack });
-   
+
+    if (
+      this.state.playlistTracks.find((savedTrack) => savedTrack.id === track.id)
+    ) {
+      return;
+    }
+
+    let newPlaylistTrack = [ ...this.state.playlistTracks ];
+    newPlaylistTrack.push(track);
+    this.setState({ playlistTracks: newPlaylistTrack });
+
   }
 
 
@@ -58,11 +55,11 @@ export default class PlayList extends React.Component {
 
   render() {
     // console.log(this.addTrack());
-    
+
     return (
-     <>
-     
-     <input
+      <>
+
+        <input
           value={this.state.playlistName}
           onChange={this.handleNameChange}
           placeholder="Playlist name"
@@ -72,10 +69,10 @@ export default class PlayList extends React.Component {
           onRemove={this.removeTrack}
           isRemoval={true}
           tracks={this.state.playlistTracks}
-          text={this.seetext}
+        
         />
 
-     </>
+      </>
     )
   }
 }

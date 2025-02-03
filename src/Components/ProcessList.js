@@ -23,12 +23,8 @@ export default class TrackList extends Component {
             onRemove={this.props.onRemove}
             track={track}
             isRemoval={this.props.isRemoval}
-           
           />
         ))}
-  
-
-
         ProcessList</div>
     )
   }
