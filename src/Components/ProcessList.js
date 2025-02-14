@@ -1,30 +1,30 @@
 import React, { Component } from 'react'
-import Track from './Track'
+// import Track from './Track'
 
 export default class TrackList extends Component {
  
   render() {
     
-    // console.log(`from trackList ${this.props.isRemoval}`);
-    // console.log(`from trackList ${this.props.text(" text")}`);
-    // this.props.text(" from trackList");
-    
+// console.log(this.props);
+
+
+    // {this.props.tracks?.map((track) => (
+          
+    //   <Track
+      
+    //     key={track.id}
+    //     onAdd={this.props.onAdd}
+    //     track={track}
+    //     onRemove={this.props.onRemove}
+    //     isRemoval={this.props.isRemoval}
+    //   />
+    // ))}
 
     return (
 
       <div>
        
-        {this.props.tracks?.map((track) => (
-          
-          <Track
-          
-            key={track.id}
-            onAdd={this.props.onAdd}
-            onRemove={this.props.onRemove}
-            track={track}
-            isRemoval={this.props.isRemoval}
-          />
-        ))}
+        
         ProcessList</div>
     )
   }

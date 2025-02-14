@@ -23,23 +23,32 @@ export default class SongData extends Component {
 
   }
 
+  // return this.state.jsonResponse.tracks?.items.map((track) => ({
+  //   id: track.id,
+  //   name: track.name,
+  //   artist: track.artists[ 0 ].name,
+  //   album: track.album.name,
+  //   uri: track.uri,
+  // }));
 
   searchResults() {
-    // this.state.jsonResponse
-    return this.state.jsonResponse.tracks?.items.map((track) => ({
-      id: track.id,
-      name: track.name,
-      artist: track.artists[ 0 ].name,
-      album: track.album.name,
-      uri: track.uri,
-    }));
+    let getTrack = this.state.jsonResponse.tracks;
+    if (getTrack) {
+      return this.state.jsonResponse.tracks;
+    }
+    else {
+      return false
+    }
+
   }
 
 
+  // <TrackList tracks={this.searchResults}
+  // isRemoval={false}
 
 
   render() {
-     
+
 
 
     return (
@@ -50,10 +59,10 @@ export default class SongData extends Component {
         <div className="App">
           <div className="App-playlist">
             <SearchArtist search={this.Search} />
-            <TrackList tracks={this.searchResults()}
-              isRemoval={false}
-     
-            />
+            <TrackList tracks={this.searchResults}
+              isRemoval={false} />
+
+
 
           </div>
         </div>

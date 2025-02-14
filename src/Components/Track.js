@@ -2,60 +2,61 @@ import React, { Component } from 'react'
 
 
 export default class Track extends Component {
-    constructor(props) {
-        super(props);
-        this.addTrack = this.addTrack.bind(this);
-        this.removeTrack = this.removeTrack.bind(this);
-      }
-      renderAction() {
-        return (
-          <button
-            onClick={this.props.isRemoval ? this.removeTrack : this.addTrack}
-            className="Track-action"
-          >
-            {this.props.isRemoval ? (
-             <h4>-</h4>
-            ) : (
-              <h4>+</h4>
-            )}
-          </button>
-        );
-      }
-    
-    
-      addTrack() {
-        // this.props.onAdd(this.props.track);
-        console.log(typeof(this.props.onAdd));
-        // console.log(this.props.track);
-        // console.log(this.props.onAdd);
-      //  console.log(Object.entries(this.props.onAdd));
-     
-        
-      }
-      removeTrack() {
-        this.props.onRemove(this.props.track);
-      }
-    
+  constructor() {
+    super();
+    this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
+  }
+
+  renderAction() {
+    // return (
+    //   <button
+    //     onClick={this.props.isRemoval ? this.removeTrack : this.addTrack}
+    //     className="Track-action"
+    //   >
+    //     {this.props.isRemoval ? (
+    //      <h4>-</h4>
+    //     ) : (
+    //       <h4>+</h4>
+    //     )}
+    //   </button>
+    // );
+
+    // if (this.props.isRemoval) {
+    //   return <button className='Track-action'>-</button>;
+    // } else {
+    //   return <button className='Track-action' onClick={this.addTrack} >+</button>;
+    // }
+  }
+
+
+
+  addTrack() {
+    // console.log(typeof(this.props.onAdd()));
+    // this.props.onAdd(this.props.track)
+    console.log(this.props.onAdd(25))
+
+  }
+  removeTrack() {
+    // this.props.onRemove(this.props.track);
+  }
+
   render() {
-    // this.props.testline(" from trackList")
-  //  let inside=Object.entries(this.props.onAdd);
-    // console.log( typeof(this.props.onAdd));
-    // console.log( Object.keys(this.props.onAdd));
-   
-    
+
+   this.addTrack()
     return (
       <div>
-        
-        
-        Track
-        {this.renderAction()}
 
-        </div>
+
+        Track
+       
+
+      </div>
     )
   }
 }
 
-Track.defaultProps = {
-    onAdd: null,
-    onRemove: null,
-  };
+// Track.defaultProps = {
+//     onAdd: null,
+//     onRemove: null,
+//   };

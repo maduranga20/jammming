@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-
 const clientID = process.env.REACT_APP_CLIENT_ID
 const clientSecret = process.env.REACT_APP_CLIENT_SECRET
 const url = "https://accounts.spotify.com/api/token";
@@ -27,8 +26,6 @@ export default class ApiData extends Component {
         const response = await fetch(url, authParameters);
         const auth = await response.json();
 
-
-
         const accessData = {
             method: 'GET',
             headers: {
@@ -41,13 +38,8 @@ export default class ApiData extends Component {
 
         localStorage.setItem("accessToken", JSON.stringify(apiSession));
 
-
-
     }
     render() {
-
-
-
 
         return (
             <div>ApiAccess</div>
