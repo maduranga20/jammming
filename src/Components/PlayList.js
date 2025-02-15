@@ -2,7 +2,7 @@ import React from 'react';
 // import TrackList from './ProcessList';
 // import "./Style/playList.css";
 
-import Track from './Track';
+// import Track from './Track';
 
 export default class PlayList extends React.Component {
   constructor() {
@@ -53,18 +53,20 @@ export default class PlayList extends React.Component {
 // />
 
 // onRemove={this.removeTrack}
+
+// <Track
+// onAdd={this.addTrack}
+// tracks={this.state.playlistTracks}
+
+// isRemoval={true}
+
+// />
   render() {
     return (
       <>
 
        
-        <Track
-          onAdd={this.addTrack}
-          tracks={this.state.playlistTracks}
-       
-          isRemoval={true}
-
-        />
+      
 
       </>
     )

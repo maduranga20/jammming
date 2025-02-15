@@ -15,8 +15,7 @@ function App() {
     <div className="App">
       <ApiData />
       <SongData />
-      <PlayList/>
-    
+      <PlayList />
     </div>
   );
 }

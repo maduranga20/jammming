@@ -1,11 +1,30 @@
 import React, { Component } from 'react'
-// import Track from './Track'
+import Track from './Track'
 
 export default class TrackList extends Component {
+
+
+  extractList(){
+    const lsit=this.props.tracks();
+    if(lsit){
+     return lsit.items.map((track) => ({
+          id: track.id,
+          name: track.name,
+          artist: track.artists[ 0 ].name,
+          album: track.album.name,
+          uri: track.uri,
+        }));
+    }
+    return  false
+
+  }
  
   render() {
+
+   
     
-// console.log(this.props);
+// console.log(this.extractList());
+// console.log(this);
 
 
     // {this.props.tracks?.map((track) => (
@@ -19,13 +38,20 @@ export default class TrackList extends Component {
     //     isRemoval={this.props.isRemoval}
     //   />
     // ))}
-
+    // <Track track={this.props.tracks}/>
     return (
 
       <div>
-       
+        <Track tracklist={this.extractList}/>
         
         ProcessList</div>
     )
   }
+ 
 }
+
+
+// TrackList.defaultProps = {
+//   tracklist: null,
+  
+// };

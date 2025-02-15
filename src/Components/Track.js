@@ -2,8 +2,13 @@ import React, { Component } from 'react'
 
 
 export default class Track extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.state = {
+      playlistTracks: [],
+      playlistName: "Playlist Name",
+
+    };
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
   }
@@ -34,16 +39,25 @@ export default class Track extends Component {
   addTrack() {
     // console.log(typeof(this.props.onAdd()));
     // this.props.onAdd(this.props.track)
-    console.log(this.props.onAdd(25))
+// if (
+    //   this.state.playlistTracks.find((savedTrack) => savedTrack.id === track.id)
+    // ) {
+    //   return;
+    // }
 
+    if(this.props.tracklist){
+      console.log(this.props.tracklist);
+    }
+   
+    
   }
   removeTrack() {
     // this.props.onRemove(this.props.track);
   }
 
   render() {
-
-   this.addTrack()
+this.addTrack()
+   
     return (
       <div>
 
@@ -60,3 +74,4 @@ export default class Track extends Component {
 //     onAdd: null,
 //     onRemove: null,
 //   };
+
