@@ -7,7 +7,7 @@ export default class TrackList extends Component {
   extractList(){
     const lsit=this.props.tracks();
     if(lsit){
-     return lsit.items.map((track) => ({
+     return lsit.items?.map((track) => ({
           id: track.id,
           name: track.name,
           artist: track.artists[ 0 ].name,
@@ -42,7 +42,9 @@ export default class TrackList extends Component {
     return (
 
       <div>
-        <Track tracklist={this.extractList}/>
+        <Track tracklist={this.extractList()}
+            isRemoval={this.props.isRemoval}
+        />
         
         ProcessList</div>
     )

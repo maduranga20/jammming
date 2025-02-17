@@ -14,18 +14,18 @@ export default class Track extends Component {
   }
 
   renderAction() {
-    // return (
-    //   <button
-    //     onClick={this.props.isRemoval ? this.removeTrack : this.addTrack}
-    //     className="Track-action"
-    //   >
-    //     {this.props.isRemoval ? (
-    //      <h4>-</h4>
-    //     ) : (
-    //       <h4>+</h4>
-    //     )}
-    //   </button>
-    // );
+    return (
+      <button
+        onClick={this.props.isRemoval ? this.removeTrack : this.addTrack}
+        className="Track-action"
+      >
+        {this.props.isRemoval ? (
+          <h4>-</h4>
+        ) : (
+          <h4>+</h4>
+        )}
+      </button>
+    );
 
     // if (this.props.isRemoval) {
     //   return <button className='Track-action'>-</button>;
@@ -39,31 +39,43 @@ export default class Track extends Component {
   addTrack() {
     // console.log(typeof(this.props.onAdd()));
     // this.props.onAdd(this.props.track)
-// if (
+    // if (
     //   this.state.playlistTracks.find((savedTrack) => savedTrack.id === track.id)
     // ) {
     //   return;
     // }
+    const track = this.props.tracklist;
 
-    if(this.props.tracklist){
-      console.log(this.props.tracklist);
+    if (this.state.playlistTracks.find((savedTrack) => savedTrack.id === track.id)) {
+      return;
     }
-   
-    
+    let newPlaylistTrack = [ ...this.state.playlistTracks ];
+    newPlaylistTrack.push(track);
+    this.setState({ playlistTracks: newPlaylistTrack });
+    console.log(this.props.tracklist);
+
   }
   removeTrack() {
     // this.props.onRemove(this.props.track);
   }
 
   render() {
-this.addTrack()
-   
+    // this.addTrack()
+
+    // console.log(this.addTrack());
+
+
     return (
       <div>
+        <div>
 
+
+         
+
+        </div>
 
         Track
-       
+        {this.renderAction()}
 
       </div>
     )
