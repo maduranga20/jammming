@@ -46,7 +46,11 @@ export default class Track extends Component {
     // }
     const track = this.props.tracklist;
 
-    if (this.state.playlistTracks.find((savedTrack) => savedTrack.id === track.id)) {
+    // const sqrNumbers = track.map((num) => num.id);
+
+    // console.log(sqrNumbers);
+
+    if (this.state.playlistTracks.find((savedTrack) => savedTrack.id === track.map((num) => num.id))) {
       return;
     }
     let newPlaylistTrack = [ ...this.state.playlistTracks ];
