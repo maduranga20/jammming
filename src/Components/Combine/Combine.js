@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Spotify from '../../API/Spotify';
 import SearchBar from '../SearchBar/SearchBar';
-
+import SearchResults from '../SearchResult/SearchResults';
+import Playlist from '../Playlist/Playlist';
 import './Combine.css';
 
 export default class Combine extends Component {
@@ -14,8 +15,14 @@ export default class Combine extends Component {
             playlistTracks: [],
         };
         this.addTrack = this.addTrack.bind(this);
+        this.addTrack = this.addTrack.bind(this);
+        this.removeTrack = this.removeTrack.bind(this);
+        this.updatePlaylistName = this.updatePlaylistName.bind(this);
+        this.savePlaylist = this.savePlaylist.bind(this);
+        this.search = this.search.bind(this);
 
     }
+
     addTrack(track) {
         if (
             this.state.playlistTracks.find((savedTrack) => savedTrack.id === track.id)
@@ -30,6 +37,28 @@ export default class Combine extends Component {
         this.setState({ playlistTracks: newPlaylistTrack });
     }
 
+    removeTrack(track) {
+        const newPlaylistTrack = this.state.playlistTracks.filter(
+            (savedTrack) => savedTrack.id !== track.id
+        );
+        this.setState({ playlistTracks: newPlaylistTrack });
+    }
+
+    updatePlaylistName(newName) {
+        this.setState({ playlistName: newName });
+    }
+
+    async savePlaylist() {
+        const tracksUris = this.state.playlistTracks.map((track) => track.uri);
+        const noTracks = tracksUris.length === 0;
+        const noPlaylistName = this.state.playlistName.trim() === "";
+        if (!noTracks && !noPlaylistName) {
+            await Spotify.savePlaylist(this.state.playlistName, tracksUris);
+
+            this.setState({ playlistName: "Playlist Name", playlistTracks: [] });
+        } else {
+        }
+    }
 
     async search(term) {
         const response = await Spotify.search(term);
@@ -41,10 +70,6 @@ export default class Combine extends Component {
 
     }
 
-//     <SearchResults
-//     onAdd={this.addTrack}
-//     searchResults={this.state.searchResults}
-// />
 
 
     render() {
@@ -57,8 +82,17 @@ export default class Combine extends Component {
                     <SearchBar onSearch={this.search} />
 
                     <div className="App-playlist">
-                       
-
+                        <SearchResults
+                            onAdd={this.addTrack}
+                            searchResults={this.state.searchResults}
+                        />
+                        <Playlist
+                            onRemove={this.removeTrack}
+                            onNameChange={this.updatePlaylistName}
+                            onSave={this.savePlaylist}
+                            playlistTracks={this.state.playlistTracks}
+                            playlistName={this.state.playlistName}
+                        />
                     </div>
                 </div>
             </div>
