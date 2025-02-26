@@ -15,13 +15,14 @@ class Track extends React.Component {
         className="Track-action"
       >
         {this.props.isRemoval ? (
-       <i class='bx bx-minus-circle ' style={{color:'#FFFFFF' }} ></i>
+          <box-icon type='solid' name='minus-circle'></box-icon>
         ) : (
-          <i class='bx bxs-plus-circle'  style={{color:'#FFFFFF' }}></i>
+          <box-icon type='solid' name='plus-circle'></box-icon>
         )}
       </button>
     );
   }
+  // <i class='bx bxs-plus-circle'  style={{color:'#FFFFFF' }}></i>
 
   addTrack() {
     this.props.onAdd(this.props.track);
