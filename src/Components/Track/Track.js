@@ -1,5 +1,5 @@
 import React from "react";
-import "boxicons";
+// import "boxicons";
 import "./Track.css";
 // D:\Channa\GitHub-Projects\Spotify\jammming\node_modules\boxicons\dist\boxicons.js.map
 class Track extends React.Component {
@@ -15,17 +15,9 @@ class Track extends React.Component {
         className="Track-action"
       >
         {this.props.isRemoval ? (
-          <box-icon
-            color="white"
-            name="minus-circle"
-            animation="flashing-hover"
-          ></box-icon>
+       <i class='bx bx-minus-circle ' style={{color:'#FFFFFF' }} ></i>
         ) : (
-          <box-icon
-            color="white"
-            name="plus-circle"
-            animation="flashing-hover"
-          ></box-icon>
+          <i class='bx bxs-plus-circle'  style={{color:'#FFFFFF' }}></i>
         )}
       </button>
     );
