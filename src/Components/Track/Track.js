@@ -15,9 +15,10 @@ class Track extends React.Component {
         className="Track-action"
       >
         {this.props.isRemoval ? (
-          <box-icon type='solid' name='minus-circle'></box-icon>
+          <box-icon name='minus-circle' type='solid'  color='#FFFFFF'></box-icon>
         ) : (
-          <box-icon type='solid' name='plus-circle'></box-icon>
+          // <box-icon type='solid' name='plus-circle'></box-icon>
+          <box-icon name='plus-circle' type='solid' color='#FFFFFF' ></box-icon>
         )}
       </button>
     );
