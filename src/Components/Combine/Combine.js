@@ -4,6 +4,10 @@ import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResult/SearchResults';
 import Playlist from '../Playlist/Playlist';
 import './Combine.css';
+import Swal from 'sweetalert2'
+
+// import Swal from 'sweetalert2/dist/sweetalert2.js'
+
 
 export default class Combine extends Component {
     constructor(props) {
@@ -15,12 +19,16 @@ export default class Combine extends Component {
             playlistTracks: [],
         };
         this.addTrack = this.addTrack.bind(this);
-        this.addTrack = this.addTrack.bind(this);
         this.removeTrack = this.removeTrack.bind(this);
         this.updatePlaylistName = this.updatePlaylistName.bind(this);
         this.savePlaylist = this.savePlaylist.bind(this);
         this.search = this.search.bind(this);
 
+    }
+
+
+    popupMessage(title, message, icon) {
+        Swal.fire(title, message, icon);
     }
 
     addTrack(track) {
@@ -29,6 +37,7 @@ export default class Combine extends Component {
         ) {
             return;
         }
+
         //Track not found in PLaylist
 
         //Array copy
@@ -61,18 +70,36 @@ export default class Combine extends Component {
     }
 
     async search(term) {
-        const response = await Spotify.search(term);
+        // const response = await Spotify.search(term);
 
-        if (!response) return;
-        else if (response.length === 0);
-        else this.setState({ searchResults: response });
+        // if (!response) return;
+        // else if (response.length === 0);
+        // else this.setState({ searchResults: response });
 
+
+        if (term.trim() === "") {
+            this.popupMessage("Warning!", "Enter a search term.", "warning");
+        } else {
+            this.toggleBlocking();
+            const response = await Spotify.search(term);
+            this.toggleBlocking();
+
+            if (!response) return;
+            else if (response.length === 0)
+                this.popupMessage("Error!", `No results found for: ${term}.`, "error");
+            else this.setState({ searchResults: response });
+        }
 
     }
 
 
 
     render() {
+
+
+
+
+
         return (
             <div>
                 <h1>

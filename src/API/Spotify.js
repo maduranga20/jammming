@@ -10,7 +10,7 @@ let Spotify = {
     // `item` is an object which contains the original value
     // as well as the time when it's supposed to expire
 
-    console.log(now);
+    // console.log(now);
     
     const item = {
       value: accessToken,
@@ -60,6 +60,7 @@ let Spotify = {
 
   async search(term) {
     const accessToken = Spotify.getAccessToken();
+    
     if (accessToken) {
       const response = await fetch(
         `https://api.spotify.com/v1/search?type=track&q=${term}`,
@@ -70,6 +71,7 @@ let Spotify = {
         }
       );
       const jsonResponse = await response.json();
+
       if (!jsonResponse.tracks) {
         return [];
       }
@@ -125,6 +127,5 @@ let Spotify = {
   },
 };
 
-console.log(Spotify.search());
 
 export default Spotify;
