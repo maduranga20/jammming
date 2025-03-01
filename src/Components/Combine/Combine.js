@@ -14,7 +14,7 @@ export default class Combine extends Component {
     constructor(props) {
         super(props);
         this.state = {
-              blocking: false,
+            blocking: false,
             searchResults: [],
             playlistName: "Playlist Name",
             playlistTracks: [],
@@ -35,8 +35,8 @@ export default class Combine extends Component {
 
     toggleBlocking() {
         this.setState({ blocking: !this.state.blocking });
-      }
-    
+    }
+
     addTrack(track) {
         if (
             this.state.playlistTracks.find((savedTrack) => savedTrack.id === track.id)
@@ -64,33 +64,33 @@ export default class Combine extends Component {
     }
 
     async savePlaylist() {
-      
+
         const tracksUris = this.state.playlistTracks.map((track) => track.uri);
         const noTracks = tracksUris.length === 0;
         const noPlaylistName = this.state.playlistName.trim() === "";
         if (!noTracks && !noPlaylistName) {
-          this.toggleBlocking();
-          await Spotify.savePlaylist(this.state.playlistName, tracksUris);
-          this.toggleBlocking();
-    
-          this.setState({ playlistName: "Playlist Name", playlistTracks: [] });
-          this.popupMessage("Saved!", "Playlist saved to your account.", "success");
+            this.toggleBlocking();
+            await Spotify.savePlaylist(this.state.playlistName, tracksUris);
+            this.toggleBlocking();
+
+            this.setState({ playlistName: "Playlist Name", playlistTracks: [] });
+            this.popupMessage("Saved!", "Playlist saved to your account.", "success");
         } else {
-          if (noPlaylistName)
-            this.popupMessage(
-              "Warning!",
-              "Choose a name for your playlist.",
-              "warning"
-            );
-          else if (noTracks)
-            this.popupMessage("Warning!", "Add some tracks first.", "warning");
-          else
-            this.popupMessage("Warning!", "Create your playlist first.", "warning");
+            if (noPlaylistName)
+                this.popupMessage(
+                    "Warning!",
+                    "Choose a name for your playlist.",
+                    "warning"
+                );
+            else if (noTracks)
+                this.popupMessage("Warning!", "Add some tracks first.", "warning");
+            else
+                this.popupMessage("Warning!", "Create your playlist first.", "warning");
         }
     }
 
     async search(term) {
-      
+
 
         if (term.trim() === "") {
             this.popupMessage("Warning!", "Enter a search term.", "warning");
@@ -112,10 +112,15 @@ export default class Combine extends Component {
     render() {
 
         return (
+            
             <div>
-                <h1>
-                    Ja<span className="highlight">mmm</span>ing
-                </h1>
+                <div className="heading">
+                    <h1 >
+                        Ja<span className="highlight">mmm</span>ing
+                    </h1>
+
+                </div>
+
                 <div className="App">
                     <SearchBar onSearch={this.search} />
 
