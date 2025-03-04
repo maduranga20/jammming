@@ -27,8 +27,6 @@ class Track extends React.Component {
 
   addTrack() {
     this.props.onAdd(this.props.track);
-   
-    
   }
 
   removeTrack() {
@@ -36,10 +34,11 @@ class Track extends React.Component {
   }
 
   render() {
+    
     return (
       <div className="Track">
         <div className="Track-information">
-          <h3> {this.props.track.name} </h3>
+          <h4> {this.props.track.name} </h4>
           <p>
             {this.props.track.artist} | {this.props.track.album}
           </p>
@@ -50,9 +49,9 @@ class Track extends React.Component {
   }
 }
 
-Track.defaultProps = {
-  onAdd: null,
-  onRemove: null,
-};
+// Track.defaultProps = {
+//   onAdd: null,
+//   onRemove: null,
+// };
 
 export default Track;

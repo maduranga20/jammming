@@ -33,7 +33,7 @@
   .loader {
     opacity: 1;
     border-radius: 5%;
-    animation: loader-spin infinite 1.5s linear;
+    animation: loader-spin infinite 5.5s linear;
     height: 30vmin;
   }
   

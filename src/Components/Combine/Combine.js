@@ -112,14 +112,11 @@ export default class Combine extends Component {
     render() {
 
         return (
-            
-            <div>
-                <div className="heading">
-                    <h1 >
-                        Ja<span className="highlight">mmm</span>ing
-                    </h1>
 
-                </div>
+            <div>
+                <h1 >
+                    Ja<span className="highlight">mmm</span>ing
+                </h1>
 
                 <div className="App">
                     <SearchBar onSearch={this.search} />

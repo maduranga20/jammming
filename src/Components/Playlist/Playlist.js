@@ -12,7 +12,7 @@ class Playlist extends React.Component {
     this.props.onNameChange(name);
   }
   render() {
-    console.log(this.props.playlistTracks);
+    // console.log(this.props.playlistTracks);
     
     return (
       <div className="Playlist">
