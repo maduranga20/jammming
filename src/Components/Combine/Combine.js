@@ -108,35 +108,41 @@ export default class Combine extends Component {
     }
 
 
+    //    <h1 >
+    //  Ja<span className="highlight">mmm</span>ing
+    //</h1>
 
     render() {
 
         return (
 
             <div>
-                <h1 >
-                    Ja<span className="highlight">mmm</span>ing
-                </h1>
-
-                <div className="App">
-                    <SearchBar onSearch={this.search} />
-
-                    <div className="App-playlist">
-                        <SearchResults
-                            onAdd={this.addTrack}
-                            searchResults={this.state.searchResults}
-                        />
-                        <Playlist
-                            onRemove={this.removeTrack}
-                            onNameChange={this.updatePlaylistName}
-                            onSave={this.savePlaylist}
-                            playlistTracks={this.state.playlistTracks}
-                            playlistName={this.state.playlistName}
-                        />
-                    </div>
+                <div className="heading">
+                    <h1>
+                        Ja<span className="highlight">mmm</span>ing
+                    </h1>
                 </div>
-                <BlockUI blocking={this.state.blocking} />
 
+                <section>
+                    <div className="App">
+                        <SearchBar onSearch={this.search} />
+
+                        <div className="App-playlist">
+                            <SearchResults
+                                onAdd={this.addTrack}
+                                searchResults={this.state.searchResults}
+                            />
+                            <Playlist
+                                onRemove={this.removeTrack}
+                                onNameChange={this.updatePlaylistName}
+                                onSave={this.savePlaylist}
+                                playlistTracks={this.state.playlistTracks}
+                                playlistName={this.state.playlistName}
+                            />
+                        </div>
+                    </div>
+                    <BlockUI blocking={this.state.blocking} />
+                </section>
             </div>
         )
     }
