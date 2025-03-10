@@ -1,10 +1,12 @@
 .SearchResults {
  
-    width: 50%;
+    width: 70vw;
     height:700px;
     overflow-y: scroll;
     padding: 0.88rem;
     background-color:rgba(51, 45, 41, 0.6);
+    margin-bottom: 1rem;
+
     /* background-color:rgba(1, 12, 63, 0.7); */
     /* box-shadow: 0 4px 2px 2px #000000; */
   }
