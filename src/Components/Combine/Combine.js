@@ -90,13 +90,14 @@ export default class Combine extends Component {
     }
 
     async search(term) {
-
+// console.log("from combine component searchMethod" + term);
 
         if (term.trim() === "") {
             this.popupMessage("Warning!", "Enter a search term.", "warning");
         } else {
             this.toggleBlocking();
             const response = await Spotify.search(term);
+            // console.log("from combine await"+response);
             this.toggleBlocking();
 
             if (!response) return;
