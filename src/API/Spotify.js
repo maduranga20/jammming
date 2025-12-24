@@ -1,4 +1,4 @@
-// const CLIENT_ID = "988c419b166f4e69b24d2153afe18037"
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 // const REDIRECT_URI=process.env.REACT_APP_REDIRECT_URL
 // const localStorageKey = "accessToken";
 
@@ -69,7 +69,7 @@ let Spotify = {
 const options = {
 	method: 'GET',
 	headers: {
-		'x-rapidapi-key': '10f83543d8mshf920977f29b0c95p1271b0jsn93902f834139',
+		'x-rapidapi-key': CLIENT_ID,
 		'x-rapidapi-host': 'spotify-api24.p.rapidapi.com'
 	}
 };
