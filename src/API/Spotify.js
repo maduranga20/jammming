@@ -86,6 +86,9 @@ try {
   const select= result.tracks.items?.map((track) => (
   { trackid: track.data.id,
     trackname: track.data.name,
+    artist: track.data.artists.items[0].profile.name,
+    album: track.data.albumOfTrack.name,
+   
   }
    
    

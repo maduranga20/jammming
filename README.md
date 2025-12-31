@@ -1,18 +1,30 @@
-# Getting Started with Create React App
+# Jammming Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Table of Contents
+    - overview
+    - Technoloy
+    - How to use
 
-In the project directory, you can run:
 
-### `npm start`
+### Overview
+    1. Project Context
+        In this project I have developed a React web application called Jammming that allows users to search for songs and select them to list on the page/
+        The app interacts with the Spotify Web API to fetch song data. 
+        I got the knowledge of React and Spotify API. EX- Components, props, state, Api request and handling events in React,
+    2. Project Features
+        - Search for songs using the Spotify API.
+        - Display search results dynamically.
+        - Allow users to select songs from the search results.
+        - Select a + sign on the right side of track to put into the selected list.
+        - Select a - sign on the right side of track to remove from the selected list.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##  Technology
+    - React
+    - Dependencies- boxicons, sweetalert2
+    - Github
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How to use
 
 ### `npm test`
 
