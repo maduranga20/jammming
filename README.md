@@ -1,16 +1,21 @@
 # Jammming Project #
 
+
 ## Table of Contents ##
-    * overview
-    * Technoloy
-    * How to use
-    
+
+
+   - **Overview**
+   - **Technoloy**
+   - **How to use**    
 
 ### Overview ###
+
+
     1. Project Context
         In this project I have developed a React web application called Jammming that allows users to search for songs and select them to list on the page/
         The app interacts with the Spotify Web API to fetch song data. 
         I got the knowledge of React and Spotify API. EX- Components, props, state, Api request and handling events in React,
+    
     2. Project Features
         * Search for songs using the Spotify API.
         * Display search results dynamically.
@@ -18,12 +23,17 @@
         * Select a + sign on the right side of track to put into the selected list.
         * Select a - sign on the right side of track to remove from the selected list.
 
+
 ##  Technology ##
+    
+    
     * React
     * Dependencies- boxicons, sweetalert2
     * Github
 
+
 ## How to use ##
+
 
 ### `npm test`
 
