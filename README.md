@@ -2,10 +2,10 @@
 
 
 ## Table of Contents
-    - overview
-    - Technoloy
-    - How to use
-    - [Project Goals](#project-goals)
+    * overview
+    * Technoloy
+    * How to use
+    
 
 ### Overview
     1. Project Context
@@ -13,16 +13,16 @@
         The app interacts with the Spotify Web API to fetch song data. 
         I got the knowledge of React and Spotify API. EX- Components, props, state, Api request and handling events in React,
     2. Project Features
-        - Search for songs using the Spotify API.
-        - Display search results dynamically.
-        - Allow users to select songs from the search results.
-        - Select a + sign on the right side of track to put into the selected list.
-        - Select a - sign on the right side of track to remove from the selected list.
+        * Search for songs using the Spotify API.
+        * Display search results dynamically.
+        * Allow users to select songs from the search results.
+        * Select a + sign on the right side of track to put into the selected list.
+        * Select a - sign on the right side of track to remove from the selected list.
 
 ##  Technology
-    - React
-    - Dependencies- boxicons, sweetalert2
-    - Github
+    * React
+    * Dependencies- boxicons, sweetalert2
+    * Github
 
 ## How to use
 
