@@ -1,13 +1,12 @@
-# Jammming Project
+# Jammming Project #
 
-
-## Table of Contents
+## Table of Contents ##
     * overview
     * Technoloy
     * How to use
     
 
-### Overview
+### Overview ###
     1. Project Context
         In this project I have developed a React web application called Jammming that allows users to search for songs and select them to list on the page/
         The app interacts with the Spotify Web API to fetch song data. 
@@ -19,12 +18,12 @@
         * Select a + sign on the right side of track to put into the selected list.
         * Select a - sign on the right side of track to remove from the selected list.
 
-##  Technology
+##  Technology ##
     * React
     * Dependencies- boxicons, sweetalert2
     * Github
 
-## How to use
+## How to use ##
 
 ### `npm test`
 
